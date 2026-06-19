@@ -13,8 +13,7 @@ interface SummonsDocumentProps {
 export function SummonsDocument({ params }: SummonsDocumentProps) {
   const docRef = useRef<HTMLDivElement>(null);
 
-  const birthYear = params.birth.split('-')[0];
-  const qrData = `ERPW:${params.summonsNumber}|UIN:${params.uin}|${params.name}`;
+  const qrData = `ERPW:${params.summonsNumber}|UIN:${params.uin}`;
 
   const handlePrint = () => {
     window.print();
@@ -74,14 +73,6 @@ export function SummonsDocument({ params }: SummonsDocumentProps) {
           <h3 className={styles.summonsTitle}>ПОВЕСТКА № {params.summonsNumber}</h3>
 
           <div className={styles.fields}>
-            <div className={styles.field}>
-              <span className={styles.fieldLabel}>Кому:</span>
-              <span className={styles.fieldValue}>{params.name}</span>
-            </div>
-            <div className={styles.field}>
-              <span className={styles.fieldLabel}>Год рождения:</span>
-              <span className={styles.fieldValue}>{birthYear}</span>
-            </div>
             <div className={styles.field}>
               <span className={styles.fieldLabel}>Явиться:</span>
               <span className={styles.fieldValue}>

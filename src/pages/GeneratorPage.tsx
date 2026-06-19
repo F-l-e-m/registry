@@ -5,8 +5,6 @@ import styles from './GeneratorPage.module.css';
 
 export function GeneratorPage() {
   const [form, setForm] = useState<SummonsFormData>({
-    name: '',
-    birth: '1998-05-15',
     date: getDefaultAppearanceDate(),
     time: '09:00',
     office: 'Военный комиссариат г. Москвы, ул. Яблочкова, д. 5',
@@ -19,10 +17,6 @@ export function GeneratorPage() {
   };
 
   const handleGenerate = () => {
-    if (!form.name.trim()) {
-      alert('Укажите ФИО');
-      return;
-    }
     const url = buildShareUrl(form);
     setGeneratedUrl(url);
     setCopied(false);
@@ -50,7 +44,7 @@ export function GeneratorPage() {
     <div className={styles.page}>
       <header className={styles.header}>
         <h1>Генератор ссылок</h1>
-        <p>Создайте персонализированную ссылку для розыгрыша</p>
+        <p>Создайте ссылку для розыгрыша</p>
       </header>
 
       <main className={styles.main}>
@@ -61,28 +55,6 @@ export function GeneratorPage() {
             handleGenerate();
           }}
         >
-          <label className={styles.label}>
-            ФИО (полностью)
-            <input
-              type="text"
-              className={styles.input}
-              value={form.name}
-              onChange={(e) => handleChange('name', e.target.value)}
-              placeholder="Иванов Иван Иванович"
-              required
-            />
-          </label>
-
-          <label className={styles.label}>
-            Дата рождения
-            <input
-              type="date"
-              className={styles.input}
-              value={form.birth}
-              onChange={(e) => handleChange('birth', e.target.value)}
-            />
-          </label>
-
           <div className={styles.row}>
             <label className={styles.label}>
               Дата явки
@@ -133,9 +105,7 @@ export function GeneratorPage() {
 
             <div className={styles.preview}>
               <h3>Превью</h3>
-              <p>
-                <strong>{form.name}</strong> — повестка № (авто)
-              </p>
+              <p>Повестка № (авто)</p>
               <p>
                 Явка: {form.date} в {form.time}
               </p>

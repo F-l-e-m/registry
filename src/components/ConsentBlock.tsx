@@ -7,18 +7,12 @@ interface ConsentBlockProps {
 }
 
 export function ConsentBlock({ params }: ConsentBlockProps) {
-  const greeting = params.name.includes(' ')
-    ? params.name.split(' ')[1] || params.name
-    : params.name;
-
   return (
     <section className={styles.section}>
       <h2 className={styles.heading}>Уведомление о вручении повестки</h2>
 
       <div className={styles.body}>
-        <p className={styles.text}>
-          Уважаемый(ая) <strong>{greeting}</strong>!
-        </p>
+        <p className={styles.text}>Уважаемый гражданин!</p>
         <p className={styles.text}>
           Сообщаем, что <strong>{formatRussianDateTime(params.signedDate, '14:32')}</strong> вами
           подписано усиленной квалифицированной электронной подписью согласие на обработку
