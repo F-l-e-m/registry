@@ -43,20 +43,33 @@ npm run preview
 
 Статика подходит для Vercel, Netlify, GitHub Pages.
 
-## Деплой на GitHub Pages
+## Деплой на GitHub Pages (папка `/docs`)
 
-Сайт: **https://f-l-e-m.github.io/gg/**
+Сайт: **https://f-l-e-m.github.io/registry/**
 
-1. Запушьте код в ветку `main`
-2. GitHub → репозиторий **gg** → **Settings** → **Pages** → Source: **GitHub Actions**
-3. После успешного workflow в **Actions** сайт будет доступен по ссылке выше
+### Настройки GitHub
+
+**Settings** → **Pages** → Source: **Deploy from a branch** → ветка `main` → папка **`/docs`**
+
+Не используйте `/root` — там исходники, а не собранный сайт.
+
+### Перед каждым пушем
+
+```bash
+npm run build:pages
+git add docs
+git commit -m "Update site"
+git push origin main
+```
+
+Команда `build:pages` собирает проект, копирует результат в `docs/` и добавляет `.nojekyll` (чтобы GitHub не запускал Jekyll).
 
 | Страница | URL |
 |----------|-----|
-| Генератор | https://f-l-e-m.github.io/gg/generator |
-| Розыгрыш | https://f-l-e-m.github.io/gg/?date=... |
+| Генератор | https://f-l-e-m.github.io/registry/generator |
+| Розыгрыш | https://f-l-e-m.github.io/registry/?date=... |
 
-Локально `npm run dev` работает как обычно на `http://localhost:5173/`. При сборке (`npm run build`) пути автоматически подстраиваются под `/gg/`.
+Локально `npm run dev` — `http://localhost:5173/`.
 
 ## Важно
 
