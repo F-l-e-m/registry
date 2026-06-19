@@ -45,6 +45,21 @@ npm run preview
 
 Статика подходит для Vercel, Netlify, GitHub Pages.
 
+## Деплой на GitHub Pages
+
+Сайт: **https://f-l-e-m.github.io/gg/**
+
+1. Запушьте код в ветку `main`
+2. GitHub → репозиторий **gg** → **Settings** → **Pages** → Source: **GitHub Actions**
+3. После успешного workflow в **Actions** сайт будет доступен по ссылке выше
+
+| Страница | URL |
+|----------|-----|
+| Генератор | https://f-l-e-m.github.io/gg/generator |
+| Розыгрыш | https://f-l-e-m.github.io/gg/?name=... |
+
+Локально `npm run dev` работает как обычно на `http://localhost:5173/`. При сборке (`npm run build`) пути автоматически подстраиваются под `/gg/`.
+
 ## Важно
 
 - Сайт **не собирает** реальные данные и **не** подключается к Госуслугам

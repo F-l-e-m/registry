@@ -7,10 +7,8 @@ interface LoadingSequenceProps {
 
 const STEPS = [
   'Установление защищённого соединения с реестром повесток...',
-  'Проверка сертификата безопасности ГОСТ Р 34.10-2012...',
   'Проверка статуса гражданина в ЕРПВ...',
   'Загрузка данных о вручённых повестках...',
-  'Сверка электронной подписи...',
 ];
 
 export function LoadingSequence({ onComplete }: LoadingSequenceProps) {
@@ -18,8 +16,8 @@ export function LoadingSequence({ onComplete }: LoadingSequenceProps) {
   const [stepIndex, setStepIndex] = useState(0);
 
   useEffect(() => {
-    const totalDuration = 3800;
-    const interval = 50;
+    const totalDuration = 1000;
+    const interval = 25;
     const increment = 100 / (totalDuration / interval);
 
     const progressTimer = setInterval(() => {
@@ -27,7 +25,7 @@ export function LoadingSequence({ onComplete }: LoadingSequenceProps) {
         const next = prev + increment;
         if (next >= 100) {
           clearInterval(progressTimer);
-          setTimeout(onComplete, 300);
+          setTimeout(onComplete, 50);
           return 100;
         }
         return next;
