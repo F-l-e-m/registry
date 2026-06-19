@@ -1,0 +1,94 @@
+.section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.heading {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.body {
+  margin-bottom: 1.5rem;
+}
+
+.text {
+  margin-bottom: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.epBlock {
+  background: #f8f9fc;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+}
+
+.epTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.epList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.epRow {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.epRow dt {
+  color: var(--color-text-muted);
+}
+
+.epRow dd {
+  font-weight: 500;
+}
+
+.mono {
+  font-family: 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.hash {
+  font-family: 'Courier New', monospace;
+  font-size: 0.65rem;
+  word-break: break-all;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+}
+
+.valid {
+  color: var(--color-success);
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 1rem;
+  }
+
+  .epRow {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
